@@ -8,8 +8,6 @@
         <img src="{{ $value["url"] }}" alt="{{ $value["legende"] }}">
         <p><a href="">{{ $value["legende"] }}</a></p>
         <p><a href="/show/{{ $value["id"] }}">Voir</a></p>
-        <p><a href="">Editer</a></p>
-        <p><a href="">Supprimer</a></p>
     </article>
   <?php endforeach; ?>
 
