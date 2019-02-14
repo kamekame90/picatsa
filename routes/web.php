@@ -11,10 +11,19 @@
 |
 */
 
-Route::get('/', function () {
-    return view('index');
+Route::get('/', 'VignetteController@index');
+
+Route::get('/show/{id}', 'VignetteController@show');
+
+/*Route::get('/admin/{user}', function ($user) {
+    return view('admin.home', ['user' => '$user']);
+});
+*/
+Route::group(['prefix' => 'admin'], function(){
+  Route::resource('/vignettes', 'AdminController' );
 });
 
-Route::get('/show', function () {
-    return view('show');
-});
+
+Auth::routes();
+
+Route::get('/index', 'HomeController@index')->name('home');

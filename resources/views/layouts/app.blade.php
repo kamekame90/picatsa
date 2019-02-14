@@ -12,15 +12,25 @@
 <body>
     <header>
         <div class="container">
-            <h1><a href="">Picatsa</a></h1>
+            <h1><a href="/">Picatsa</a></h1>
             <button id="burger" type="button">
                 <i class="fas fa-bars"></i>
             </button>
             <nav>
                 <ul class="menu">
-                    <li><a href="">Inscription</a></li>
-                    <li><a href="">Connexion</a></li>
-                    
+                    @guest <li><a href="/register">Inscription</a></li><li><a href="/login">Connexion</a></li> @endguest
+                    @auth
+                    <li><a href="{{ route('vignettes.index')}}">Mon compte</a></li>
+                    <li><a class="dropdown-item" href="{{ route('logout') }}"
+                         onclick="event.preventDefault();
+                                       document.getElementById('logout-form').submit();">
+                          {{ __('Logout') }}
+                      </a>
+                      <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                          @csrf
+                      </form>
+                    </li>
+              @endauth
                 </ul>
             </nav>
         </div>
