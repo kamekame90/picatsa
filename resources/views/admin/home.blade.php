@@ -4,7 +4,7 @@
 <main class="container posts articles">
 
     <article>
-        <p>Bonjour {{ $user->name }}</p>
+        <p>Bonjour {{ $user }}</p>
     </article>
 
 </main>

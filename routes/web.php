@@ -15,10 +15,10 @@ Route::get('/', 'VignetteController@index');
 
 Route::get('/show/{id}', 'VignetteController@show');
 
-/*Route::get('/admin/{user}', function ($user) {
-    return view('admin.home', ['user' => '$user']);
+Route::get('/admin/user', function () {
+    return view('admin.home', ['user' => Auth::user()->name]);
 });
-*/
+
 Route::group(['prefix' => 'admin'], function(){
   Route::resource('/vignettes', 'AdminController' );
 });
